@@ -1,0 +1,66 @@
+.container {
+    padding-top: 40px;
+}
+.header {
+    background-color: rgba(255,255,255,0.3);
+    font-family: 'Text Me One', sans-serif;
+}
+
+.separator {
+    padding: 3em;
+    filter:blur(12px);
+}
+
+.menu {
+    font-size: smaller;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    line-height: 2em;
+}
+
+.menu input {
+    padding-bottom: 5px;
+}
+
+.notes {
+    padding: 1em;
+    background-color: #F8F5F1;
+    border-radius: 10px;
+}
+
+.shopping {
+    background-color: #68B2B6;
+    border-radius: 10px;
+}
+
+.todo {
+    font-size: larger;
+}
+
+.todo_field {
+    padding-bottom: 1.5em;
+}
+
+.todo_separator {
+    padding: 0.5em;
+}
+
+.todo_list {
+    line-height: 1.5em;
+}
+
+.weather {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right:50px;
+}
+
+body {
+    background-color: #7EBDC2;
+    /* background-image: url('/static/Blue-Abstract-Wallpaper.png'); */
+    font-family: 'Roboto', sans-serif;
+
+}
+
+

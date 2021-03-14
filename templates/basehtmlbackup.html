@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Text+Me+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+</head>
+<body>
+    <div class=container>
+        <div class="header text-center">
+            <h1 class="header-text">WELCOME HOME</h1>
+            <h2 class="header-text">Today Is {{ date_time }}<h2>
+        </div>
+        <div class="text-center row weather">
+            <h2>Weather</h2>
+            <span class="separator"></span>
+        </div>
+        <div class="row">
+            <div class="col todo">
+            <h1>To Do</h1>
+            <span class="todo_separator"></span>
+            
+            {% for todo in todo_list %}
+                <p>{{ todo.id }} : {{ todo.title }}</p>
+            
+
+                {% if todo.complete == False %}
+                    <p>Not Complete</p>
+                {% else %}
+                    <p>Completed</p>
+                {% endif %}
+                <a href="/update/{{ todo.id }}">Mark Complete</a>
+                <a href="/delete/{{ todo.id }}">Delete</a>
+            <form action="/add", method="post">
+                <div>
+                    <!-- <label for="title">Todo Title</label> -->
+                    <input type="text" name="title" placeholder="Enter To Do...">
+                    <button type=submit type="button" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+
+            {% endfor %}
+            </div>
+            <div class="col shopping">
+            <h1 class="text-center">Shopping List</h1>
+            </div>
+            <div class="col menu">
+                <h1>Weekly Dinner Menu Plan</h1>
+                <br>
+                <h2>Monday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Tuesday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Wednesday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Thursday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Friday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Saturday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+                <h2>Sunday</h2>
+                <input type="text" name="title" placeholder="Enter Item">
+            </div>
+            <div class=notes>
+            <h1>Notes / Things To Remember</h1>
+            <p>Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.</p>
+            <input type="text" name="title" placeholder="add note">
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
