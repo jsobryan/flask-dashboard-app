@@ -22,6 +22,11 @@ class Menu(db.Model):
     item = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
+class Notes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    item = db.Column(db.String(100))
+    complete = db.Column(db.Boolean)
+
 
 @app.route('/')
 def index():
