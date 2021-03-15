@@ -29,7 +29,9 @@ def index():
     date_time = now.strftime("%A, %B %W %Y")
     #show all todos
     todo_list = Todo.query.all()
-    return render_template('base.html', todo_list=todo_list, date_time = date_time)
+    menu_list = Menu.query.all()
+    shopping_list = Shopping.query.all()
+    return render_template('base.html', todo_list=todo_list, shopping_list=shopping_list, menu_list=Menu.query.all(), date_time = date_time)
 
      
 
