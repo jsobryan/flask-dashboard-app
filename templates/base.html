@@ -6,26 +6,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Text+Me+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do App</title>
 </head>
 <body>
-
     <div class="header text-center">
         <h1 class="header-text"><b>WELCOME HOME</b></h1>
         <h2 class="header-text">Today Is {{ date_time }}<h2>
     
         <div class="weather">
-            <h2>Weather</h2>
-            <h2>70&#730;F</h2>
+            <h2>It Is Currently 70&#730;F</h2>
         </div>
         <span class="separator"></span>           
     </div>
     
     <div class=container>
-        
         <div class="row">
             <div class="col todo">
                 <h1><u>To Do</u></h1>
@@ -44,7 +43,7 @@
                     {% if todo.complete == False %}
                         Not Complete<br>
                     {% else %}
-                        Completed<br>
+                        <span id="completed">Completed!</span><br>
                     {% endif %}
                     <a href="/update/{{ todo.id }}">Mark Complete/Incomplete</a>
                     <a href="/delete/{{ todo.id }}">Delete</a><p></p>
@@ -61,22 +60,25 @@
             </div>
             </div>
             <div class="col menu">
-                <h1>Weekly Dinner Menu Plan</h1>
+                <h1><u>Weekly Dinner Menu</u></h1>
                 <br>
-                <h2>Monday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Tuesday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Wednesday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Thursday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Friday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Saturday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
-                <h2>Sunday</h2>
-                <input type="text" name="title" placeholder="Enter Item">
+                <ul class="list-group">
+                    <li>Monday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Tuesday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Wednesday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Thursday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Friday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Saturday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li>Sunday</li>
+                    <input type="text" name="title" placeholder="Enter Item">
+                    <li></li>
+                </ul>
             </div>
             <div class=notes>
             <h1>Notes / Things To Remember</h1>
@@ -85,6 +87,7 @@
             </div>
         </div>
     </div>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
