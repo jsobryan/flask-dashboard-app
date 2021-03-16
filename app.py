@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+import time
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_BASE_URI'] = 'sqlite:///db.sqlite'
@@ -22,19 +23,18 @@ class Menu(db.Model):
     item = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
-class Notes(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    item = db.Column(db.String(100))
-    complete = db.Column(db.Boolean)
-
 
 @app.route('/')
 def index():
     now = datetime.datetime.now() # current date and time
     date_time = now.strftime("%A, %B %W %Y")
+    t = time.localtime()
+    current_time = time.strftime("%I:%M", t)
     #show all todos
     todo_list = Todo.query.all()
-    return render_template('base.html', todo_list=todo_list, date_time = date_time)
+    menu_list = Menu.query.all()
+    shopping_list = Shopping.query.all()
+    return render_template('base.html', todo_list=todo_list, shopping_list=shopping_list, menu_list=Menu.query.all(), date_time = date_time)
 
      
 
@@ -63,7 +63,6 @@ def delete(todo_id):
 
 if __name__ == "__main__":
     db.create_all()
-
     new_todo = Todo(title="todo 1", complete=False)
     db.session.add(new_todo)
     db.session.commit()

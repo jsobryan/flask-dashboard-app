@@ -12,54 +12,43 @@
     <title>To Do App</title>
 </head>
 <body>
-
-    <div class="header text-center">
-        <h1 class="header-text"><b>WELCOME HOME</b></h1>
-        <h2 class="header-text">Today Is {{ date_time  }}<h2>
-        <h2 class="header-text">It is {{ current_time }}</h2>
-    
-        <div class="weather">
-            <h2>Weather</h2>
-            <h2>70&#730;F</h2>
-        </div>
-        <span class="separator"></span>           
-    </div>
-    
     <div class=container>
-        
+        <div class="header text-center">
+            <h1 class="header-text">WELCOME HOME</h1>
+            <h2 class="header-text">Today Is {{ date_time }}<h2>
+        </div>
+        <div class="text-center row weather">
+            <h2>Weather</h2>
+            <span class="separator"></span>
+        </div>
         <div class="row">
             <div class="col todo">
-                <h1><u>To Do</u></h1>
-                <span class="todo_separator"></span>
-                <form action="/add", method="post">
-                    <div class="todo_field">
-                        <!-- <label for="title">Todo Title</label> -->
-                        <input type="text" name="title" placeholder="Enter To Do...">
-                        <button type=submit type="button" class="btn btn-primary">Add</button>
-                    </div>
-                </form>
-                <div class="todo_list">
-                {% for todo in todo_list %}
-                    <b>{{ todo.id }} : {{ todo.title }}</b><br>
-                
-                    {% if todo.complete == False %}
-                        Not Complete<br>
-                    {% else %}
-                        Completed<br>
-                    {% endif %}
-                    <a href="/update/{{ todo.id }}">Mark Complete/Incomplete</a>
-                    <a href="/delete/{{ todo.id }}">Delete</a><p></p>
-                {% endfor %}
+            <h1>To Do</h1>
+            <span class="todo_separator"></span>
+            
+            {% for todo in todo_list %}
+                <p>{{ todo.id }} : {{ todo.title }}</p>
+            
+
+                {% if todo.complete == False %}
+                    <p>Not Complete</p>
+                {% else %}
+                    <p>Completed</p>
+                {% endif %}
+                <a href="/update/{{ todo.id }}">Mark Complete</a>
+                <a href="/delete/{{ todo.id }}">Delete</a>
+            <form action="/add", method="post">
+                <div>
+                    <!-- <label for="title">Todo Title</label> -->
+                    <input type="text" name="title" placeholder="Enter To Do...">
+                    <button type=submit type="button" class="btn btn-primary">Add</button>
                 </div>
+            </form>
+
+            {% endfor %}
             </div>
             <div class="col shopping">
-            <h1 class="text-center"><u>Shopping List</u></h1>
-            <span class="todo_separator"></span>
-            <div class="todo_field">
-                <!-- <label for="title">Todo Title</label> -->
-                <input type="text" name="title" placeholder="Enter Item">
-                <button type=submit type="button" class="btn btn-primary">Add</button>
-            </div>
+            <h1 class="text-center">Shopping List</h1>
             </div>
             <div class="col menu">
                 <h1>Weekly Dinner Menu Plan</h1>

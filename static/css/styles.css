@@ -1,9 +1,27 @@
+#completed {
+    color: firebrick;
+}
+
 .container {
-    padding-top: 40px;
+    padding: 40px;
+    border: 5px solid black;
+    filter: drop-shadow(0px 5px 4px black);
+    background-image:url('../claptrapbw.png');
+    background-color: linen;
+    background-blend-mode: hard-light;
 }
 .header {
-    background-color: rgba(255,255,255,0.3);
-    font-family: 'Text Me One', sans-serif;
+    background-image: url('../psychobw.jpg');
+    background-size: 90%;
+    background color: black;
+    background-position: bottom right;
+    background-blend-mode: screen;
+    color: linen;
+    font-family: 'Maven Pro', sans-serif;
+    text-shadow: 2px 1px 2px gray;
+    border: 2px black;
+    color: #E2E8CE;
+    border-bottom: 5px solid #linen;
 }
 
 .separator {
@@ -12,14 +30,19 @@
 }
 
 .menu {
-    font-size: smaller;
-    padding-left: 2em;
-    padding-bottom: 2em;
     line-height: 2em;
+    padding: 0;
 }
 
+.menu li {
+    padding-bottom: 10px;
+    background-color: #3B413C;
+    color: linen;
+}
+
+
 .menu input {
-    padding-bottom: 5px;
+    margin-bottom: 1em;
 }
 
 .notes {
@@ -29,12 +52,13 @@
 }
 
 .shopping {
-    background-color: #68B2B6;
     border-radius: 10px;
+    margin-right: 20px;
 }
 
 .todo {
-    font-size: larger;
+    font-size: 1.5rem;
+    color: linen;
 }
 
 .todo_field {
@@ -49,18 +73,20 @@
     line-height: 1.5em;
 }
 
-.weather {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding-right:50px;
-}
-
 body {
-    background-color: #7EBDC2;
-    /* background-image: url('/static/Blue-Abstract-Wallpaper.png'); */
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 7%, rgba(0,0,0,1) 59%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);
     font-family: 'Roboto', sans-serif;
 
+}
+
+ul {
+    list-style-type: none;
+    font-size: 2rem;
+}
+
+a {
+    color: white;
 }
 
 
