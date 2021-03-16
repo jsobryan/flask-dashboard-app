@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+#calls weather from a script that pulls data from openweather API
 from weather import temp
 
 app = Flask(__name__)
@@ -65,4 +66,5 @@ if __name__ == "__main__":
     new_todo = Todo(title="todo 1", complete=False)
     db.session.add(new_todo)
     db.session.commit()
+    #debug and port need to be changed in production
     app.run(debug=True, port=5000, host='0.0.0.0')
