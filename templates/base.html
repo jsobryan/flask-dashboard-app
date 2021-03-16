@@ -15,12 +15,10 @@
 
     <div class="header text-center">
         <h1 class="header-text"><b>WELCOME HOME</b></h1>
-        <h2 class="header-text">Today Is {{ date_time  }}<h2>
-        <h2 class="header-text">It is {{ current_time }}</h2>
+        <h2 class="header-text">Today Is {{ date_time  }} {{ current_time }}<h2>
     
         <div class="weather">
-            <h2>Weather</h2>
-            <h2>70&#730;F</h2>
+            <h2>{{ temp }}&#730;F</h2>
         </div>
         <span class="separator"></span>           
     </div>
@@ -45,7 +43,7 @@
                     {% if todo.complete == False %}
                         Not Complete<br>
                     {% else %}
-                        Completed<br>
+                        <span id="completed">Completed</span><br>
                     {% endif %}
                     <a href="/update/{{ todo.id }}">Mark Complete/Incomplete</a>
                     <a href="/delete/{{ todo.id }}">Delete</a><p></p>

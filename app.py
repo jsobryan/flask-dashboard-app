@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import datetime
-import time
+from weather import temp
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_BASE_URI'] = 'sqlite:///db.sqlite'
@@ -28,13 +28,12 @@ class Menu(db.Model):
 def index():
     now = datetime.datetime.now() # current date and time
     date_time = now.strftime("%A, %B %W %Y")
-    t = time.localtime()
-    current_time = time.strftime("%I:%M", t)
+    current_time = now.strftime("%I:%M %p")
     #show all todos
     todo_list = Todo.query.all()
     menu_list = Menu.query.all()
     shopping_list = Shopping.query.all()
-    return render_template('base.html', todo_list=todo_list, shopping_list=shopping_list, menu_list=Menu.query.all(), date_time = date_time)
+    return render_template('base.html', todo_list=todo_list, shopping_list=shopping_list, menu_list=Menu.query.all(), date_time = date_time, current_time = current_time, temp=temp)
 
      
 
